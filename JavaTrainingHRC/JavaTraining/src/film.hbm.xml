@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.highradius.javaTraining.model.FilmPojo" table="film">
+
+		<meta attribute="class-description">
+			Film Table from Sakila Schema.
+		</meta>
+
+		<id name="film_id" type="java.lang.Integer" column="film_id">
+			<generator class="identity" />
+		</id>
+
+	    <property name="title" column="title" type="java.lang.String" not-null="true"/>
+	                
+	    <property name="description" column="description" type="java.lang.String" />
+	                
+	    <property name="release_year" column="release_year" type="java.lang.Long" />
+	                
+	    <many-to-one name="language" class="com.highradius.javaTraining.model.LanguagePojo" cascade="all" lazy="false" fetch="select">
+			<column name="language_id" not-null="true"  />
+	    </many-to-one>
+	
+		<property name="rating" column="rating" type="java.lang.String" />
+		           
+		<property name="special_features" column="special_features" type="java.lang.String" />
+	
+	    <property name="director" column="director" type="java.lang.String" />
+	    
+	    <property name="isDeleted" column="isDeleted" type="boolean" not-null="true" />
+		
+	</class>
+	
+</hibernate-mapping>
