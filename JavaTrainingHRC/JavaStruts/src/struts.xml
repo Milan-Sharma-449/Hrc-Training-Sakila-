@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+   "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<package name="SakilaUI" extends="json-default">
+
+		<action name="GetSakila" class="com.highradius.struts.action.SakilaAction" method="getData">	
+			<result name="success" type="json">
+				<param name="root">dataResponse</param>
+			</result>
+			<result name="error">./error.jsp</result>	
+		</action>
+
+		<action name="AddSakila" class="com.highradius.struts.action.SakilaAction" method="addData">	
+			<result name="success">/index.jsp</result>	
+			<result name="error">./error.jsp</result>	
+		</action>
+
+		<action name="EditSakila" class="com.highradius.struts.action.SakilaAction" method="editData">	
+			<result name="success">/index.jsp</result>	
+			<result name="error">./error.jsp</result>	
+		</action>
+
+		<action name="DeleteSakila" class="com.highradius.struts.action.SakilaAction" method="deleteData">	
+			<result name="success">/index.jsp</result>	
+			<result name="error">./error.jsp</result>		
+		</action>
+
+	</package>
+
+</struts>
